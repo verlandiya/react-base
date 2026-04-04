@@ -1,0 +1,20 @@
+
+.site-bar-container {
+    display: flex;
+    direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-color: #d0d4ba;
+    width: 280px;
+}
+
+.site-bar {
+    background-color: #063b31;
+    padding: 30px 20px;
+    width: 100%;
+    color: white;
+}
+
+.site-bar p {
+    margin: 0;
+}

@@ -1,38 +1,83 @@
-import React from 'react'
-import Button from './Button.jsx'
-import {useState} from 'react'
-import "../css/form.css"
+import React, { useState } from 'react'
+import MainCard from './MainCard.jsx'
+import '../css/form.css'
 
 
-export default function Register() {
-    const [form, setForm] = useState({
+export default function Registr () {
+    const [formData, setFormData] = useState({
         name: '',
-        password: '',
-    })
-
-    /* useEffect */
+        email: '',
+        password: ''
+    });
 
     const handleChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value,
-        })
-    }
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(form)
+        console.log('Register:', formData);
+        // Здесь будет логика регистрации
     }
 
     return (
-        <div className='form'>
-        <form onSubmit={handleSubmit}>
-            <input name="name" value={form.name} onChange={handleChange} placeholder={'Введите имя и фамилию'}/>
-            <input name="password" value={form.password} onChange={handleChange} placeholder={'Введите пароль'}/>
-            <Button title='Регистрация' onClick={handleSubmit}/>
-        </form></div>
+        <MainCard>
+            <form onSubmit={handleSubmit} className="form">
+                <h2 className="form-title">Регистрация</h2>
+
+                <div className="form-group">
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Иван Иванов"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="form-input"
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="example@gmail.com"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="form-input"
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="пароль"
+                        value={formData.password}
+                        onChange={handleChange}
+                        className="form-input"
+                        required
+                    />
+                </div>
+
+                <div className="form-footer">
+                    <button type="submit" className="btn-submit">
+                        Зарегистрироваться
+                    </button>
+                    <button
+                        type="button"
+                        className="corner-button"
+                    >
+                        Войти
+                    </button>
+
+                </div>
+            </form>
+        </MainCard>
     )
 }
-
-
-

@@ -1,0 +1,64 @@
+
+.order-info-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+    padding: 10px 10px; /* отступ от стенок основной карточки */
+    margin: 16px 0; /* расстояние сверху/снизу от внешнего блока */
+
+    min-width: 300px;
+    max-width: 400px;
+    max-height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* расстояние между заказами */
+}
+
+/* Контейнер для скролла */
+.order-info-content {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* расстояние между строками */
+    padding-right: 4px; /* чтобы скролл не перекрывал текст */
+}
+
+/* Каждая строка заказа */
+.order-item {
+    display: flex;             /* выстроить кнопки и текст в ряд */
+    align-items: center;       /* вертикальное выравнивание */
+    justify-content: flex-start;
+    gap: 12px;                 /* расстояние между кнопками и текстом */
+
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: #f8f8fa;       /* светлый фон для разделения строк */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+
+.order-controls {
+    display: flex;
+    gap: 8px;
+}
+
+
+.order-text {
+    flex: 1;
+}
+
+.order-info-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.order-info-content::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+.order-info-content::-webkit-scrollbar-track {
+    background-color: transparent;
+}

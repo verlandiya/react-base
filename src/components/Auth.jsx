@@ -1,39 +1,66 @@
-import React from 'react'
-import Button from './Button.jsx'
-import {useState} from 'react'
-import "../css/form.css"
 
+import React, { useState } from 'react';
+import MainCard from './MainCard';
+import '../css/form.css';
 
-export default function Register() {
-    const [error, setError] = useState('')
-    const [form, setForm] = useState({
-        name: '',
-        password: '',
-    })
-
-    /* useEffect */
+export default function Auth () {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
 
     const handleChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value,
-        })
-    }
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(form)
-
+        console.log('Login:', formData);
+        // Здесь будет логика входа
     }
 
     return (
-        <div className='form'>
-            <form onSubmit={handleSubmit}>
-                <input name="name" value={form.name} onChange={handleChange} placeholder={'Введите имя и фамилию'}/>
-                <input name="password" value={form.password} onChange={handleChange} placeholder={'Введите пароль'}/>
-                {error && <p>{error}</p>}
-                <Button title='Вход' onClick={handleSubmit}/>
-            </form></div>
-    )
-}
+        <MainCard>
+            <form onSubmit={handleSubmit} className="form">
+                <h2 className="form-title">Вход</h2>
+
+                <div className="form-group">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Почта"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="form-input"
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Пароль"
+                        value={formData.password}
+                        onChange={handleChange}
+                        className="form-input"
+                        required
+                    />
+                </div>
+
+                <div className="form-footer">
+                    <button type="submit" className="btn-submit">
+                        Войти
+                    </button>
+
+
+                </div>
+            </form>
+        </MainCard>
+    );
+};
 
