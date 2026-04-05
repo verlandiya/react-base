@@ -10,7 +10,6 @@ export default function OrderInfo({ orders }) {
     return (
 
         <MainCard>
-        <p>Ваши заказы</p>
         <div className="order-info-card">
             {orders && orders.length > 0 ? (
                 <div className="order-info-content">

@@ -1,11 +1,12 @@
 
-.order-info-card {
+.company-list {
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    justify-content: flex-end;
 
     padding: 10px 10px; /* отступ от стенок основной карточки */
-    margin: 16px 0; /* расстояние сверху/снизу от внешнего блока */
+    margin: 16px 20px; /* расстояние сверху/снизу от внешнего блока */
 
     min-width: 650px;
     max-width: 700px;
@@ -17,7 +18,7 @@
 }
 
 /* Контейнер для скролла */
-.order-info-content {
+.company-item {
     flex: 1;
     overflow-y: auto;
     display: flex;
@@ -28,7 +29,7 @@
 }
 
 /* Каждая строка заказа */
-.order-item {
+.company-name {
     display: flex;             /* выстроить кнопки и текст в ряд */
     align-items: center;       /* вертикальное выравнивание */
     justify-content: flex-start;
@@ -41,25 +42,25 @@
 }
 
 
-.order-controls {
+.company-controls {
     display: flex;
     gap: 8px;
 }
 
 
-.order-text {
+.company-text {
     flex: 1;
 }
 
-.order-info-content::-webkit-scrollbar {
+.company-list::-webkit-scrollbar {
     width: 6px;
 }
 
-.order-info-content::-webkit-scrollbar-thumb {
+.company-list::-webkit-scrollbar-thumb {
     background-color: rgba(0,0,0,0.2);
     border-radius: 3px;
 }
 
-.order-info-content::-webkit-scrollbar-track {
+.company-list::-webkit-scrollbar-track {
     background-color: transparent;
 }

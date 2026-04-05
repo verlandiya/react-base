@@ -1,32 +1,49 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import MainCard from './MainCard.jsx'
 import '../css/form.css'
-
+import Button from "./Button.jsx";
+import Auth from './Auth.jsx'
+import SiteBar from "./SiteBar.jsx";
 
 export default function Registr () {
+    const [onLk, setonLk] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: ''
-    });
+    })
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
             [name]: value
-        }));
-    };
+        }))
+    }
+
+    useEffect(() => {
+        fetch('http://185.251.88.165/api/v1/owners', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)})
+            .then(response => response.json())
+            .then(data => {console.log('вот:', data)})
+            .catch(error => {console.error('Ошибка:', error)})}, [])
+
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Register:', formData);
-        // Здесь будет логика регистрации
-    }
+        alert('регистрация прошла успешно')}
+        setonLk(true)
 
-    return (
-        <MainCard>
-            <form onSubmit={handleSubmit} className="form">
+
+
+
+  return (<MainCard>
+      <form onSubmit={handleSubmit} className="form">
                 <h2 className="form-title">Регистрация</h2>
 
                 <div className="form-group">
@@ -66,18 +83,12 @@ export default function Registr () {
                 </div>
 
                 <div className="form-footer">
-                    <button type="submit" className="btn-submit">
+                    <button type="submit" className="btn-submit" onClick={handleSubmit}>
                         Зарегистрироваться
+                        <SiteBar onLk={onLk}/>
                     </button>
-                    <button
-                        type="button"
-                        className="corner-button"
-                    >
-                        Войти
-                    </button>
+
 
                 </div>
             </form>
-        </MainCard>
-    )
-}
+        </MainCard>)}

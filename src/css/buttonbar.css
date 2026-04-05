@@ -1,0 +1,17 @@
+.button-bar{
+    width: 150px;
+    padding: 12px 24px;
+    background-color:  #e6e1da;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-bar:hover {
+    background-color: white;
+    color: black;
+}

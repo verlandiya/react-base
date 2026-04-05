@@ -1,18 +1,19 @@
 
 .site-bar-container {
     display: flex;
-    direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    background-color: #d0d4ba;
-    width: 280px;
+    background-color:  #e6e1da;
+    width: 600px;
 }
 
 .site-bar {
+    display: flex;           /* добавляем flex для кнопок */
+    flex-direction: column;  /* кнопки в колонку */
+    gap: 15px;              /* расстояние между кнопками */
     background-color: #063b31;
-    padding: 30px 20px;
-    width: 100%;
     color: white;
+    padding: 20px;
 }
 
 .site-bar p {
